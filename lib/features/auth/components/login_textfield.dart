@@ -34,6 +34,7 @@ class _LoginTextfieldState extends State<LoginTextfield> {
           style: GoogleFonts.ubuntu(
             color: Theme.of(context).colorScheme.inversePrimary,
             fontWeight: FontWeight.w600,
+            fontSize: 16,
           ),
         ),
         const SizedBox(
