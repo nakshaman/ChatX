@@ -7,7 +7,7 @@ ThemeData darkMode = ThemeData(
     secondary: const Color.fromARGB(255, 39, 39, 39),
     tertiary: const Color.fromARGB(255, 25, 25, 25),
     inversePrimary: Colors.grey.shade300,
-    shadow: Colors.black.withValues(alpha: 0.7),
+    shadow: Colors.black.withValues(alpha: 0.4),
   ),
   scaffoldBackgroundColor: Colors.grey.shade900,
   textTheme: appTextTheme,

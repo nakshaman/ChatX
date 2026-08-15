@@ -60,9 +60,11 @@ class _SignupState extends State<Signup> {
                   children: [
                     //image
                     Lottie.asset('assets/lottie/message.json'),
+                    // username, email, password, button
                     ShadowBox(
                       child: Column(
                         children: [
+                          // username field
                           LoginTextfield(
                             labelText: 'Username',
                             controller: usernameController,
@@ -102,8 +104,9 @@ class _SignupState extends State<Signup> {
                       ),
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 25,
                     ),
+                    // last line already have an account
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

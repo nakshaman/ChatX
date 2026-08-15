@@ -66,7 +66,7 @@ class _LoginState extends State<Login> {
                   children: [
                     //image
                     Lottie.asset('assets/lottie/profile.json'),
-                    // email field
+                    // email, password,
                     ShadowBox(
                       child: Column(
                         children: [
@@ -90,7 +90,9 @@ class _LoginState extends State<Login> {
                           ),
                           // button
                           LoginButton(
-                            onTap: () {},
+                            onTap: () {
+                              authBloc.add(AuthLoginRequestedEvent());
+                            },
                             buttonText: 'Login',
                           ),
                           const SizedBox(
@@ -103,6 +105,7 @@ class _LoginState extends State<Login> {
                     const SizedBox(
                       height: 25,
                     ),
+                    // forgot password
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -124,6 +127,7 @@ class _LoginState extends State<Login> {
                     const SizedBox(
                       height: 25,
                     ),
+                    // last line didn't have an account
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

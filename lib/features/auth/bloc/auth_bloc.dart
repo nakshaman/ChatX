@@ -13,6 +13,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthNavigateToSignUp>(authNavigateToSignUp);
     on<AuthNavigateToLogIn>(authNavigateToLogIn);
     on<AuthNavigateToForgotPassword>(authNavigateToForgotPassword);
+    on<AuthLoginRequestedEvent>(authLoginRequestedEvent);
   }
 
   FutureOr<void> authNavigateToSignUp(
@@ -34,5 +35,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     Emitter<AuthState> emit,
   ) {
     emit(LoginToForgotPasswordScreenState());
+  }
+
+  FutureOr<void> authLoginRequestedEvent(
+    AuthLoginRequestedEvent event,
+    Emitter<AuthState> emit,
+  ) {
+    emit(AuthLoadingState());
+    
   }
 }

@@ -41,7 +41,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                     child: Column(
                       children: [
-                        // 1. Top Navigation Bar
+                        // Top Navigation Bar
                         Row(
                           children: [
                             GestureDetector(
@@ -62,6 +62,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                     color: colorScheme.inversePrimary,
                                     letterSpacing: 1.2,
                                     fontSize: 13,
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
                               ),
@@ -71,10 +72,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           ],
                         ),
 
-                        // 2. Expandable space to push content to the vertical center
+                        // Expandable space to push content to the vertical center
                         const Spacer(),
 
-                        // 3. Center Body Content
+                        //  Icon
                         Center(
                           child: Container(
                             height: 90,
@@ -91,6 +92,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           ),
                         ),
                         const SizedBox(height: 25),
+                        // text large
                         Center(
                           child: Text(
                             'Trouble logging in?',
@@ -102,6 +104,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           ),
                         ),
                         const SizedBox(height: 8),
+                        // text small
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Text(
@@ -115,6 +118,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           ),
                         ),
                         const SizedBox(height: 35),
+                        // email label and input box
                         ShadowBox(
                           child: Column(
                             children: [
@@ -139,7 +143,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           ),
                         ),
 
-                        // 4. Equal bottom spacer balancing the content in the center
+                        // Equal bottom spacer balancing the content in the center
                         const Spacer(),
                       ],
                     ),
