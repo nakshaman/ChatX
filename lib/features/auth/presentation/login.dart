@@ -16,13 +16,22 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  late final AnimationController catController;
+  @override
+  void initState() {
+    catController = AnimationController(vsync: this);
+    super.initState();
+  }
+
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    catController.dispose();
     super.dispose();
   }
 
@@ -65,7 +74,23 @@ class _LoginState extends State<Login> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //image
-                    Lottie.asset('assets/lottie/profile.json'),
+                    Lottie.asset(
+                      controller: catController,
+                      'assets/lottie/cat.json',
+                      fit: BoxFit.cover,
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      onLoaded: (composition) {
+                        catController.duration = composition.duration;
+                        catController.animateTo(
+                          0.60,
+                          duration: Duration(
+                            milliseconds:
+                                (composition.duration.inMilliseconds * 0.60)
+                                    .round(),
+                          ),
+                        );
+                      },
+                    ),
                     // email, password,
                     ShadowBox(
                       child: Column(
