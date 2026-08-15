@@ -7,20 +7,20 @@ class ShadowBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.grey.shade300,
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.shade500,
+            color: Theme.of(context).colorScheme.shadow,
             blurRadius: 15.0,
             offset: const Offset(5, 5),
           ),
-          const BoxShadow(
-            color: Colors.white,
+          BoxShadow(
+            color: Theme.of(context).colorScheme.shadow,
             blurRadius: 4.0,
-            offset: Offset(-5, -5),
+            offset: const Offset(-5, -5),
           ),
         ],
       ),

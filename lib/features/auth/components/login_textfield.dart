@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class LoginTextfield extends StatelessWidget {
+class LoginTextfield extends StatefulWidget {
   final String labelText;
   final TextEditingController controller;
-  final bool isObsecureText;
+  final bool isPassword;
   const LoginTextfield({
     super.key,
     required this.labelText,
     required this.controller,
-    this.isObsecureText = false,
+    this.isPassword = false,
   });
+
+  @override
+  State<LoginTextfield> createState() => _LoginTextfieldState();
+}
+
+class _LoginTextfieldState extends State<LoginTextfield> {
+  late bool isObsecureText;
+  @override
+  void initState() {
+    isObsecureText = widget.isPassword;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,19 +30,38 @@ class LoginTextfield extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          labelText,
-          style: TextStyle(color: Theme.of(context).colorScheme.inversePrimary),
+          widget.labelText,
+          style: GoogleFonts.ubuntu(
+            color: Theme.of(context).colorScheme.inversePrimary,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         const SizedBox(
           height: 10,
         ),
         TextField(
-          controller: controller,
+          controller: widget.controller,
           obscureText: isObsecureText,
           style: TextStyle(
             color: Theme.of(context).colorScheme.inversePrimary,
           ),
           decoration: InputDecoration(
+            suffixIcon: widget.isPassword
+                ? IconButton(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    onPressed: () {
+                      setState(() {
+                        isObsecureText = !isObsecureText;
+                      });
+                    },
+                    icon: Icon(
+                      isObsecureText
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility,
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
+                  )
+                : null,
             filled: true,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),

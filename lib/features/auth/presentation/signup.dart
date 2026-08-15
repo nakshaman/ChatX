@@ -1,6 +1,7 @@
 import 'package:chatx/features/auth/bloc/auth_bloc.dart';
 import 'package:chatx/features/auth/components/login_button.dart';
 import 'package:chatx/features/auth/components/login_textfield.dart';
+import 'package:chatx/features/auth/components/shadow_box.dart';
 import 'package:chatx/features/auth/presentation/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,43 +49,60 @@ class _SignupState extends State<Signup> {
           return Center(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                padding: EdgeInsets.only(
+                  left: 12.0,
+                  right: 12.0,
+                  bottom: MediaQuery.of(context).viewInsets.bottom + 20,
+                  top: 24.0,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //image
                     Lottie.asset('assets/lottie/message.json'),
-                    LoginTextfield(
-                      labelText: 'Username',
-                      controller: usernameController,
+                    ShadowBox(
+                      child: Column(
+                        children: [
+                          LoginTextfield(
+                            labelText: 'Username',
+                            controller: usernameController,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          // email field
+                          LoginTextfield(
+                            labelText: 'Email',
+                            controller: emailController,
+                          ),
+                          // space
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          // password field
+                          LoginTextfield(
+                            labelText: 'Password',
+                            controller: passwordController,
+                            isPassword: true,
+                          ),
+                          // space
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          // button
+                          LoginButton(
+                            onTap: () {},
+                            buttonText: 'Sign up',
+                          ),
+                          // space
+                          const SizedBox(
+                            height: 20,
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(
-                      height: 10,
-                    ),
-                    // email field
-                    LoginTextfield(
-                      labelText: 'Email',
-                      controller: emailController,
-                    ),
-                    // space
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    // password field
-                    LoginTextfield(
-                      labelText: 'Password',
-                      controller: passwordController,
-                      isObsecureText: true,
-                    ),
-                    // space
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    // button
-                    LoginButton(onTap: () {}),
-                    // space
-                    const SizedBox(
-                      height: 25,
+                      height: 30,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

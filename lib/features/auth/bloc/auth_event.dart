@@ -10,3 +10,5 @@ final class AuthSignupRequestedEvent extends AuthEvent {}
 final class AuthNavigateToSignUp extends AuthEvent {}
 
 final class AuthNavigateToLogIn extends AuthEvent {}
+
+final class AuthNavigateToForgotPassword extends AuthEvent {}

@@ -19,3 +19,5 @@ final class AuthErrorState extends AuthState {}
 final class LoginToSignUpScreenState extends AuthActionState {}
 
 final class SignUpToLogInScreenState extends AuthActionState {}
+
+final class LoginToForgotPasswordScreenState extends AuthActionState {}
