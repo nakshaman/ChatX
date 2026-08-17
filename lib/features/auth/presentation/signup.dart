@@ -14,16 +14,25 @@ class Signup extends StatefulWidget {
   State<Signup> createState() => _SignupState();
 }
 
-class _SignupState extends State<Signup> {
+class _SignupState extends State<Signup> with SingleTickerProviderStateMixin {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
+
+  late AnimationController typingController;
+
+  @override
+  void initState() {
+    super.initState();
+    typingController = AnimationController(vsync: this);
+  }
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
     usernameController.dispose();
+    typingController.dispose();
     super.dispose();
   }
 
@@ -59,7 +68,20 @@ class _SignupState extends State<Signup> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //image
-                    Lottie.asset('assets/lottie/message.json'),
+                    Lottie.asset(
+                      'assets/lottie/type.json',
+                      controller: typingController,
+                      onLoaded: (composition) {
+                        typingController.animateTo(
+                          1,
+                          duration: Duration(
+                            milliseconds:
+                                (composition.duration.inMilliseconds * 1)
+                                    .round(),
+                          ),
+                        );
+                      },
+                    ),
                     // username, email, password, button
                     ShadowBox(
                       child: Column(

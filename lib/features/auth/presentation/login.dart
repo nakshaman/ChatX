@@ -75,17 +75,17 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   children: [
                     //image
                     Lottie.asset(
-                      controller: catController,
                       'assets/lottie/cat.json',
+                      controller: catController,
                       fit: BoxFit.cover,
                       height: MediaQuery.of(context).size.height * 0.4,
                       onLoaded: (composition) {
                         catController.duration = composition.duration;
                         catController.animateTo(
-                          0.60,
+                          0.90,
                           duration: Duration(
                             milliseconds:
-                                (composition.duration.inMilliseconds * 0.60)
+                                (composition.duration.inMilliseconds * 0.90)
                                     .round(),
                           ),
                         );
