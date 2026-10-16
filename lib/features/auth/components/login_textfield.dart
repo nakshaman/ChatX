@@ -58,7 +58,7 @@ class _LoginTextfieldState extends State<LoginTextfield> {
                     icon: Icon(
                       isObsecureText
                           ? Icons.visibility_off_outlined
-                          : Icons.visibility,
+                          : Icons.visibility_outlined,
                       color: Theme.of(context).colorScheme.inversePrimary,
                     ),
                   )
